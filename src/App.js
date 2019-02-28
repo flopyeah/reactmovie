@@ -39,13 +39,16 @@ class App extends Component {
       }
 
       applyVideoCurrentMovie() {
+          window.scrollTo(0, 0)
+
             axios
                 .get(`${API_END_POINT}movie/${this.state.movieCurrent.id}?${API_KEY}&append_to_response=videos&include_adult=false`)
                 .then(function (response) {
-                  const youtubeKey = response.data.videos.results[0].key
-                  let NewCurrentMovie = this.state.movieCurrent
-                  NewCurrentMovie.videoId = youtubeKey;
-                  this.setState({ movieCurrent : NewCurrentMovie })
+                    const youtubeKey = response.data.videos.results[0].key
+                    let NewCurrentMovie = this.state.movieCurrent
+                    NewCurrentMovie.videoId = youtubeKey;
+                    this.setState({ movieCurrent : NewCurrentMovie })
+
                 }.bind(this));
       }
 
@@ -113,9 +116,11 @@ class App extends Component {
                     <SearchBar callback={this.onclickSearch.bind(this)} />
                 </div>
                 <div className="col-sm-8">
-                    {renderVideoYoutube()}
-                    <VideoDetail title={this.state.movieCurrent.title} description={this.state.movieCurrent.overview}
-                                 image={this.state.movieCurrent.poster_path}/>
+                    <div className="row">
+                        {renderVideoYoutube()}
+                        <VideoDetail title={this.state.movieCurrent.title} description={this.state.movieCurrent.overview}
+                                     image={this.state.movieCurrent.poster_path}/>
+                    </div>
                 </div>
                 <div className="col-sm-4">
                     {renderVideoList()}

@@ -7,7 +7,7 @@ const VideoList = (props) => {
 
     return(
         <div>
-            <ul>
+            <ul className="list-group">
                 {
                     movieList.map( (movie) => {
                         return <VideoListItem key={movie.id} movie={movie} callback={receiveCallback} />

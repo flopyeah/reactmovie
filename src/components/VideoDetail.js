@@ -6,17 +6,15 @@ const VideoDetail = ({title, description, image}) => {
 
 
     return(
-        <div>
+        <div className="col-12">
             <div className="media">
-                <img className="mr-3" alt={title} src={`${IMG_PATH}${image}`} />
+                <img height="150" className="mr-3" alt={title} src={`${IMG_PATH}${image}`} />
 
                 <div className="media-body">
                     <h1>{title}</h1>
                     <p>{description}</p>
                 </div>
-
             </div>
-
         </div>
     )
 }
