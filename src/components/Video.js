@@ -1,6 +1,6 @@
 import React from 'react'
 
-const URL_YOUTUBE_VIDEO = 'http://www.youtube.com/embed/';
+const URL_YOUTUBE_VIDEO = 'https://www.youtube.com/embed/';
 
 const Video = ({videoId}) => {
 
